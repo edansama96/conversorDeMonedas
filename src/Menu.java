@@ -14,6 +14,7 @@ public class Menu {
                     Por favor seleccione alguna de las siguientes opciones:
                     1) Para ingresar a realizar un cambio de moneda.
                     2) Salir.            
+                    *****************************************************
                     """);
 
             int casos = teclado.nextInt();
@@ -22,6 +23,7 @@ public class Menu {
             switch (casos) {
                 case 1:
                     System.out.println("""
+                            *****************************************************
                             Para la moneda base puede escribir entre el siguiente listado de monedas:
                             1) ARS - Peso Argentino
                             2) BOB - Boliviano
@@ -32,7 +34,8 @@ public class Menu {
                             7) JPY - Yen japonés
                             8) JMD - Dólar jamaicano
                             9) LBP - Libra libanesa
-                            """);
+                            *****************************************************
+                            \n""");
 
                     System.out.println("Escriba el código de la moneda base a cambiar:");
                     String monedaBase = teclado.nextLine();
@@ -54,7 +57,7 @@ public class Menu {
                     break;
 
                 default:
-                    System.out.println("Por favor seleccione una opción válida del menú.");
+                    System.out.println("Por favor seleccione una opción válida del menú. \n");
                     break;
             }
         }
