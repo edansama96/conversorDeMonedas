@@ -29,6 +29,11 @@ public class ApiConexion {
             // Se obtiene la clave del API
             String apiKey = properties.getProperty("api.key");
 
+            //Al crear la URL se manejan 4 elementos los datos ingresados por el usuairo que son
+            // la moneda base
+            // la moneda de cambio
+            // el valor a cambiar
+            // y el apikey que se obteniene al realizar el proceso por medio de exchangerateapi
         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/"+apiKey+"/pair/" + monedaBase
                 + "/" + monedaObjetivo + "/" + valorDeCambio);
 
