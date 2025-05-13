@@ -1,10 +1,12 @@
 import com.google.gson.Gson;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Properties;
 
 public class ApiConexion {
     public Conversor convertirMoneda(String monedaBase, String monedaObjetivo, double valorDeCambio) {
@@ -17,9 +19,17 @@ public class ApiConexion {
             System.out.println("El valor de cambio debe ser mayor");
         }
 
+        //Crear un objeto Properties para poder manejar y cargar la key del api
+        Properties properties = new Properties();
 
         try {
-        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/934a6028c8d545d6afcc684c/pair/" + monedaBase
+            //Carga del archivo config.properties
+            FileInputStream inputStream = new FileInputStream("src/config.properties");
+            properties.load(inputStream);
+            // Se obtiene la clave del API
+            String apiKey = properties.getProperty("api.key");
+
+        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/"+apiKey+"/pair/" + monedaBase
                 + "/" + monedaObjetivo + "/" + valorDeCambio);
 
         HttpClient client = HttpClient.newHttpClient();

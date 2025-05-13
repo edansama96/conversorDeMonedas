@@ -35,7 +35,7 @@ public class Menu {
                             8) JMD - Dólar jamaicano
                             9) LBP - Libra libanesa
                             *****************************************************
-                            \n""");
+                            """);
 
                     System.out.println("Escriba el código de la moneda base a cambiar:");
                     String monedaBase = teclado.nextLine();
